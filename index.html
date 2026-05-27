@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>House of Noctaire</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">House of Noctaire</a>
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#cart">Cart <span id="cartCount">0</span></a>
+      <a href="admin.html">Admin</a>
+      <select id="themeSelect" aria-label="Choose theme">
+        <option value="noctaire">Noctaire</option>
+        <option value="ivory">Ivory</option>
+        <option value="ember">Ember</option>
+        <option value="botanical">Botanical</option>
+      </select>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Luxury essentials after dark</p>
+        <h1>Fragrance, fashion, and objects for the nocturnal elite.</h1>
+        <p class="lede">A Shopify-style storefront powered by Supabase and hosted on GitHub Pages.</p>
+        <a class="button" href="#shop">Enter the collection</a>
+      </div>
+    </section>
+
+    <section id="shop" class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Curated shop</p>
+          <h2>Products</h2>
+        </div>
+        <div class="filters">
+          <input id="searchInput" type="search" placeholder="Search products..." />
+          <select id="categoryFilter"><option value="">All categories</option></select>
+        </div>
+      </div>
+      <div id="productGrid" class="product-grid"></div>
+      <p id="emptyProducts" class="muted hidden">No products found.</p>
+    </section>
+
+    <section id="cart" class="section split">
+      <div>
+        <p class="eyebrow">Checkout</p>
+        <h2>Your cart</h2>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-total">Total: <strong id="cartTotal">$0.00</strong></div>
+      </div>
+      <form id="orderForm" class="panel">
+        <h3>Customer details</h3>
+        <label>Name<input name="customer_name" required /></label>
+        <label>Email<input name="customer_email" type="email" required /></label>
+        <label>Phone<input name="customer_phone" /></label>
+        <label>Shipping address<textarea name="shipping_address" required></textarea></label>
+        <label>Notes<textarea name="notes"></textarea></label>
+        <button class="button full" type="submit">Submit order</button>
+        <p id="orderStatus" class="muted"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">© <span id="year"></span> House of Noctaire</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
